@@ -1,25 +1,62 @@
 package games.character;
 
-import games.attacksystem.Attack;
-import games.attacksystem.Attackable;
+import games.attacksystem.Combatable;
+import games.attacksystem.command.Command;
+import games.attacksystem.mediator.Mediator;
+import games.bag.Bag;
 import games.skills.BasicSkill;
 
 import java.util.List;
 
 public class Warrior extends Role {
     private List<BasicSkill> skillList;
-    @Override
-    public void attackSingle(Attackable a1) {
-        super.attackSingle(a1);
+    private Bag bag;
+
+
+
+    private static volatile Warrior warrior;
+
+    public List<BasicSkill> getSkillList() {
+        return skillList;
     }
 
-    @Override
-    public void attackGroup(List<Attackable> list) {
-        super.attackGroup(list);
+    public void setSkillList(List<BasicSkill> skillList) {
+        this.skillList = skillList;
     }
 
+    public Bag getBag() {
+        return bag;
+    }
+
+    public void setBag(Bag bag) {
+        this.bag = bag;
+    }
+
+
+    private Warrior(){}
+
+    public static Warrior getWarriorInstance(){
+        if(warrior==null){
+            synchronized (Warrior.class){
+                if(warrior==null){
+                    warrior=new Warrior();
+                }
+            }
+        }
+        return warrior;
+    }
+
+
     @Override
-    public void beAttacked(Attack attack) {
-        super.beAttacked(attack);
+    public String toString() {
+        return "Warrior{" +
+                "skillList=" + skillList +
+                ", bag=" + bag +
+                ", HP=" + HP +
+                ", physicAttack=" + physicAttack +
+                ", magicAttack=" + magicAttack +
+                ", physicDefence=" + physicDefence +
+                ", magicDefence=" + magicDefence +
+                '}';
     }
 }

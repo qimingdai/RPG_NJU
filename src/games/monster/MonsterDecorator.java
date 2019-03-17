@@ -8,6 +8,8 @@ public class MonsterDecorator extends Monster{
     public MonsterDecorator(Monster monster, MonsterPool pool){
         this.monster=monster;
         this.pool=pool;
+        super.setHP(monster.getHP());
+
     }
 
     @Override
@@ -15,4 +17,11 @@ public class MonsterDecorator extends Monster{
         pool.destroyMonster(m);
     }
 
+    @Override
+    public String toString() {
+        return "MonsterDecorator{" +
+                "monster=" + monster +
+                ", pool=" + pool +
+                '}';
+    }
 }

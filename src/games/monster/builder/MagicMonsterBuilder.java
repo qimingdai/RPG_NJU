@@ -4,12 +4,17 @@ import games.monster.MagicMonster;
 import games.monster.Monster;
 
 public class MagicMonsterBuilder extends AbstractBuilder {
-    private Monster magicMonster=new MagicMonster();
+    private MagicMonster magicMonster=new MagicMonster();
 
     public static MagicMonsterBuilder create(){
         return new MagicMonsterBuilder();
     }
 
+    /**
+     * 以下Build均缺少具体数值
+     * @param level
+     * @return
+     */
     @Override
     public MagicMonsterBuilder buildHP(int level) {
         return this;

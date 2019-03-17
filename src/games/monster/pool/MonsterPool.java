@@ -57,6 +57,7 @@ public class MonsterPool {
         stateList.remove(monster);
         Monster m = inti(monster);
         monsterList.addLast(m);
+        System.out.println("池回收了怪物");
 //        System.out.println("现在的空闲队列："+monsterList);
 //        System.out.println("现在的工作队列"+stateList);
     }

@@ -14,4 +14,6 @@ public class PhysicRareMonsterFactory implements MonsterFactory {
                 .createDefaultPhysicMonster(level);
         return rm;
     }
+
+
 }

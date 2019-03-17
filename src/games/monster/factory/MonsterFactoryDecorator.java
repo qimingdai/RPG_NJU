@@ -21,17 +21,5 @@ public class MonsterFactoryDecorator implements MonsterFactory {
         return new MonsterDecorator(m, pool);
     }
 
-    public static void main(String[] args){
-        MonsterPool monsterPool =  MagicBossPool.getMonsterPool();
-        List<Monster> list = monsterPool.getMonster(1,25);
-        System.out.println(list);
-        List<Monster> list1 = monsterPool.getMonster(2,30);
-        for(Monster m:list1){
-            System.out.println(m);
-            m.monsterDied(m);
-        }
-//        MonsterPool pool2 = PhysicRarePool.getMonsterPool();
-//        List<Monster> l2 = pool2.getMonster(11,20);
-//        System.out.println(l2);
-    }
+
 }

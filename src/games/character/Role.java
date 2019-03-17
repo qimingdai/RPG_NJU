@@ -1,33 +1,46 @@
 package games.character;
 
 
-import games.attacksystem.Attack;
-import games.attacksystem.Attackable;
-import games.skills.BasicSkill;
+import games.attacksystem.Combatable;
+import games.attacksystem.command.Command;
+import games.attacksystem.mediator.Mediator;
 
-import java.util.List;
-
-public class Role implements Attackable {
-    private int HP;
-    private int physicAttack;
-    private int magicAttack;
-    private int physicDefence;
-    private int magicDefence;
-
+public class Role implements Combatable {
+    protected int HP;
+    protected int physicAttack;
+    protected int magicAttack;
+    protected int physicDefence;
+    protected int magicDefence;
+    protected Mediator mediator;
 
     @Override
-    public void attackSingle(Attackable a1) {
-
+    public void attackSingle(Combatable combatable) {
+        mediator.launchAttack(this,combatable);
     }
 
     @Override
-    public void attackGroup(List<Attackable> list) {
-
+    public boolean isKilled() {
+        if(this.HP<=0){
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public void beAttacked(Attack attack) {
+    public void beKilled() {
+        System.out.println("人死了");
+    }
 
+    @Override
+    public void beAttacked() {
+        /**
+         * 状态改变
+         */
+    }
+
+
+    public void setMediator(Mediator mediator) {
+        this.mediator = mediator;
     }
 
     public int getHP() {
@@ -58,7 +71,7 @@ public class Role implements Attackable {
         return physicDefence;
     }
 
-    public void setPhsicDefence(int physicDefence) {
+    public void setPhysicDefence(int physicDefence) {
         this.physicDefence = physicDefence;
     }
 
@@ -70,7 +83,14 @@ public class Role implements Attackable {
         this.magicDefence = magicDefence;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Role{" +
+                "HP=" + HP +
+                ", physicAttack=" + physicAttack +
+                ", magicAttack=" + magicAttack +
+                ", physicDefence=" + physicDefence +
+                ", magicDefence=" + magicDefence +
+                '}';
+    }
 }

@@ -1,16 +1,13 @@
 package games.monster;
 
-import games.attacksystem.Attack;
-import games.attacksystem.Attackable;
+import games.attacksystem.Combatable;
 import games.equipments.EquipmentsValues;
 import games.experience.ExpValue;
-
-import java.util.List;
 
 /**
  * attackValue由子类是物理怪物还是魔法怪物确定。
  */
-public class Monster implements Attackable {
+public class Monster implements Combatable {
     private int HP;
     private int physicDefence;
     private int magicDefence;
@@ -18,26 +15,35 @@ public class Monster implements Attackable {
     //0表示普通，1表示稀有，2表示Boss
     private int rarity;
 
-    ExpValue expValue;
-    EquipmentsValues equipmentsValues;
+    private ExpValue expValue;
+    private EquipmentsValues equipmentsValues;
 
     public void monsterDied(Monster m){
 
     }
 
     @Override
-    public void attackSingle(Attackable a1) {
+    public void attackSingle(Combatable combatable) {
 
     }
 
     @Override
-    public void attackGroup(List<Attackable> list) {
-
+    public boolean isKilled() {
+        if(HP<=0){
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public void beAttacked(Attack attack) {
+    public void beAttacked() {
+        System.out.println("怪物被攻击了，血量需要发生变化");
+    }
 
+    @Override
+    public void beKilled() {
+        System.out.println("怪物死了");
+        monsterDied(this);
     }
 
     public int getHP() {
@@ -94,5 +100,19 @@ public class Monster implements Attackable {
 
     public void setEquipmentsValues(EquipmentsValues equipmentsValues) {
         this.equipmentsValues = equipmentsValues;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Monster{" +
+                "HP=" + HP +
+                ", physicDefence=" + physicDefence +
+                ", magicDefence=" + magicDefence +
+                ", attackValue=" + attackValue +
+                ", rarity=" + rarity +
+                ", expValue=" + expValue +
+                ", equipmentsValues=" + equipmentsValues +
+                '}';
     }
 }
