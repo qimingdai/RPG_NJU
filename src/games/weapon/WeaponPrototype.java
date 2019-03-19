@@ -3,7 +3,7 @@ package games.weapon;
 import java.util.HashMap;
 
 public class WeaponPrototype {
-    public static HashMap<Integer,BasicWeapon> hashMap = new HashMap<>();
+    private static HashMap<Integer,BasicWeapon> hashMap = new HashMap<>();
 
     public static BasicWeapon getWeapon(Integer markId){
         return hashMap.get(markId).clone();
@@ -21,6 +21,12 @@ public class WeaponPrototype {
 
         RareWand rareWand = new RareWand();
         hashMap.put(rareWand.getMarkId(),rareWand);
+
+        ArtifactSword artifactSword = new ArtifactSword();
+        hashMap.put(artifactSword.getMarkId(),artifactSword);
+
+        ArtifactWand artifactWand = new ArtifactWand();
+        hashMap.put(artifactWand.getMarkId(),artifactWand);
     }
 
 

@@ -1,8 +1,7 @@
 package games.equipments;
 
 public class LegRareEquipment2 extends BaseEquipment{
-    //0100 0010
-    private int markId=66;
+    //0011 0010
 
     public int getMarkId() {
         return markId;
@@ -13,5 +12,6 @@ public class LegRareEquipment2 extends BaseEquipment{
         physicDefence=6000;
         magicDefence=10000;
         equipmentRarity=EquipmentRarity.RARE_EQUIPMENT;
+        markId=50;
     }
 }

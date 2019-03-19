@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class HeadOrdinaryEquipment1 extends BaseEquipment{
     //0001 0001
-    private int markId=17;
 
     public int getMarkId() {
         return markId;
@@ -15,5 +14,6 @@ public class HeadOrdinaryEquipment1 extends BaseEquipment{
         physicDefence=10000;
         magicDefence=6000;
         equipmentRarity=EquipmentRarity.ORDINARY_EQUIPMENT;
+        markId=17;
     }
 }

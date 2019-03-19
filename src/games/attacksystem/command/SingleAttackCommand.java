@@ -2,9 +2,10 @@ package games.attacksystem.command;
 
 
 import games.attacksystem.Combatable;
+import games.equipments.BaseEquipment;
 
 
-public class SingleAttackCommand implements Command {
+public class SingleAttackCommand implements AttackCommand {
     Combatable combatable;
 
     public SingleAttackCommand(Combatable combatable) {
@@ -16,4 +17,5 @@ public class SingleAttackCommand implements Command {
         System.out.println("开始执行SingleAttackCommand，进攻"+c1);
        combatable.attackSingle(c1);
     }
+
 }

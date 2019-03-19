@@ -1,7 +1,5 @@
 package games.character.build;
 
-import games.attacksystem.command.Command;
-import games.character.Role;
 import games.character.Warrior;
 
 public class WarriorBuilder extends RoleBuilder {

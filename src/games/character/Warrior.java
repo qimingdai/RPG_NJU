@@ -1,8 +1,5 @@
 package games.character;
 
-import games.attacksystem.Combatable;
-import games.attacksystem.command.Command;
-import games.attacksystem.mediator.Mediator;
 import games.bag.Bag;
 import games.skills.BasicSkill;
 

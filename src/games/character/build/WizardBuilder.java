@@ -1,7 +1,5 @@
 package games.character.build;
 
-import games.attacksystem.command.Command;
-import games.character.Role;
 import games.character.Wizard;
 
 public class WizardBuilder extends RoleBuilder {
