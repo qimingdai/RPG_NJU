@@ -1,6 +1,8 @@
 package games.character.build;
 
 import games.character.Warrior;
+import games.equipments.manage.ArrayBasedManagement;
+import games.equipments.manage.EquipmentsManagement;
 
 public class WarriorBuilder extends RoleBuilder {
     private Warrior role = Warrior.getWarriorInstance();
@@ -15,7 +17,10 @@ public class WarriorBuilder extends RoleBuilder {
     public RoleBuilder buildSkills(){
         return this;
     }
-
+    public RoleBuilder buildEquipmentManagement(){
+        role.setEquipmentsManagement(new ArrayBasedManagement());
+        return this;
+    }
 
     @Override
     public RoleBuilder buildHP() {
@@ -56,6 +61,7 @@ public class WarriorBuilder extends RoleBuilder {
                 .buildMagicDefence();
         this.buildBag();
         this.buildSkills();
+        this.buildEquipmentManagement();
         return role;
     }
 }

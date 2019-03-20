@@ -51,6 +51,21 @@ public class BaseEquipment implements Cloneable{
     }
 
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPhysicDefence() {
+        return physicDefence;
+    }
+
+    public int getMagicDefence() {
+        return magicDefence;
+    }
+
+    public EquipmentRarity getEquipmentRarity() {
+        return equipmentRarity;
+    }
 
     @Override
     public String toString() {

@@ -4,6 +4,8 @@ package games.character;
 import games.attacksystem.Combatable;
 import games.attacksystem.mediator.Mediator;
 import games.equipments.BaseEquipment;
+import games.equipments.manage.ArrayBasedManagement;
+import games.equipments.manage.EquipmentsManagement;
 
 public class Role implements Combatable,Wearable {
     protected int HP;
@@ -14,10 +16,10 @@ public class Role implements Combatable,Wearable {
     protected Mediator mediator;
 
     /**
-     *   用数组来表示穿戴的装备
-     *   index 0：头肩；1：胸甲，2：腿甲
+     *   基于数组实现的装备管理类
+     *
      */
-    protected BaseEquipment[] equipments = new BaseEquipment[3];
+    protected EquipmentsManagement equipmentsManagement;
 
     @Override
     public void attackSingle(Combatable combatable) {
@@ -49,12 +51,13 @@ public class Role implements Combatable,Wearable {
         /**
          * 穿戴装备，当赋值给装备数组的时候，需要将脱下来的装备放置背包中
          */
-        //该index对应于装备数组中的顺序，但partNumber比Index大1
-        int index = equipment.getPartInfo().getNumber();
-        equipments[index-1]=equipment;
+        equipmentsManagement.wearEquipment(equipment);
     }
 
-
+    @Override
+    public void undressEquipment(BaseEquipment equipment) {
+        equipmentsManagement.undressEquipment(equipment);
+    }
 
     public void setMediator(Mediator mediator) {
         this.mediator = mediator;
@@ -104,12 +107,12 @@ public class Role implements Combatable,Wearable {
         return physicDefence;
     }
 
-    public BaseEquipment[] getEquipments() {
-        return equipments;
+    public EquipmentsManagement getEquipmentsManagement() {
+        return equipmentsManagement;
     }
 
-    public void setEquipments(BaseEquipment[] equipments) {
-        this.equipments = equipments;
+    public void setEquipmentsManagement(EquipmentsManagement equipmentsManagement) {
+        this.equipmentsManagement = equipmentsManagement;
     }
 
     @Override
