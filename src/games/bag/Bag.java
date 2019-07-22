@@ -15,6 +15,7 @@ public class Bag {
     public void sold(Object o){
         arrayList.remove(o);
         //提示成功售出
+        System.out.print("出售商品成功");
     }
 
 }
