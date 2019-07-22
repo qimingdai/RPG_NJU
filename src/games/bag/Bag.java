@@ -9,10 +9,13 @@ public class Bag {
             arrayList.add(o);
         }else {
             //提示背包空间不足
+            System.out.println("背包所剩空间不足");
         }
     }
     public void sold(Object o){
         arrayList.remove(o);
         //提示成功售出
+        System.out.print("出售商品成功");
     }
+
 }
